@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn Daemon for File Server
+After=network.target
+
+[Service]
+User=www-matteogatzner
+Group=www-matteogatzner
+WorkingDirectory=/home/www-matteogatzner/file-server/
+ExecStart=/opt/mambaforge/envs/file-server/bin/gunicorn -c server_internals/gunicorn_conf.py main:app
+
+[Install]
+WantedBy=multi-user.target
